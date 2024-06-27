@@ -49,16 +49,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="cliente/index_cliente.php">Clientes</a>
+              <a class="nav-link" href="/CentralDeEventos/cliente/index_cliente.php">Clientes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contratofornecedores/index.php">Contrato</a>
+              <a class="nav-link" href="/CentralDeEventos/contratofornecedores/index.php">Contrato</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/eventos/index.php">Eventos</a>
+              <a class="nav-link" href="/CentralDeEventos/eventos/index.php">Eventos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="fornecedores/index.php">Fornecedores</a>
+              <a class="nav-link" href="/CentralDeEventos/fornecedores/index.php">Fornecedores</a>
             </li>
           </ul>
         </div>

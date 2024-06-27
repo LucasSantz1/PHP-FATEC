@@ -1,15 +1,21 @@
 <?php
 require_once("../cabecalho.php");
 
+session_start(); // Inicie a sessão
+
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    session_start();
     $_SESSION['id'] = $id;
 } else {
-    $id = $_SESSION['id'];
+    if (isset($_SESSION['id'])) {
+        $id = $_SESSION['id'];
+    } else {
+        echo "ID do cliente não definido.";
+        exit;
+    }
 }
 
-if ($_POST) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (excluirCliente($id)) {
         echo "Registro excluído com sucesso!";
     } else {
@@ -28,3 +34,5 @@ if ($_POST) {
 <?php
 require_once("../rodape.html");
 ?>
+
+

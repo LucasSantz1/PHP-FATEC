@@ -1,14 +1,14 @@
 <?php
 
 function conectarBanco(){
-    $conexao = new PDO("mysql:host=localhost; dbname=mydb", "root", "");
+    $conexao = new PDO("mysql:host=localhost; dbname=bancophp", "root", "");
     return $conexao;
 }
 
 //-------------------------------------------------------------------------------------------------------------------
 function listarClientes(){
     try{
-        $sql = "SELECT * FROM Clientee";
+        $sql = "SELECT * FROM clientee";
         $conexao = conectarBanco();
         return $conexao->query($sql);
     } catch(Exception $e){
@@ -19,7 +19,7 @@ function listarClientes(){
 
 function adicionarCliente($nome, $telefone, $email) {
     try {
-        $sql = "INSERT INTO Clientee (nome, telefone, email) VALUES (:nome, :telefone, :email) ";
+        $sql = "INSERT INTO clientee (nome, telefone, email) VALUES (:nome, :telefone, :email) ";
         $conexao = conectarBanco();
         $stmt = $conexao->prepare($sql);
         $stmt->bindValue(":nome", $nome);
@@ -35,7 +35,7 @@ function adicionarCliente($nome, $telefone, $email) {
 
 function consultarClienteId($id) {
     try { 
-        $sql = "SELECT * FROM Clientee WHERE id = :id";
+        $sql = "SELECT * FROM clientee WHERE id = :id";
         $conexao = conectarBanco();
         $stmt = $conexao->prepare($sql);
         $stmt->bindValue(":id", $id);
@@ -46,12 +46,13 @@ function consultarClienteId($id) {
     }
 }
 
-function alterarCliente($id, $telefone, $email) {
+function alterarCliente($nome, $telefone, $email, $id) {
     try { 
-        $sql = "UPDATE Clientee SET telefone = :telefone, email = :email WHERE id = :id";
+        $sql = "UPDATE clientee SET nome = :nome, telefone = :telefone, email = :email WHERE id = :id";
         $conexao = conectarBanco();
         $stmt = $conexao->prepare($sql);
         $stmt->bindValue(":id", $id);
+        $stmt->bindValue(":nome", $nome);
         $stmt->bindValue(":telefone", $telefone);
         $stmt->bindValue(":email", $email);
         return $stmt->execute();
@@ -62,17 +63,18 @@ function alterarCliente($id, $telefone, $email) {
 
 
 
-function excluirCliente($id) {
-    try {
-        $sql = "DELETE FROM Clientee WHERE id = :id";
+function excluirCliente($id){
+    try{ 
+        $sql = "DELETE FROM clientee WHERE id = :id";
         $conexao = conectarBanco();
         $stmt = $conexao->prepare($sql);
         $stmt->bindValue(":id", $id);
         return $stmt->execute();
-    } catch (Exception $e) {
+    } catch (Exception $e){
         return 0;
     }
 }
+
 
 
 //-------------------------------------------------------------------------------------------------------------------
