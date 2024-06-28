@@ -88,10 +88,18 @@ function listarEventos(){
     }
 }
 
-function adicionarEvento($dataevento, $local){
-    $conexao = conectarBanco();
-    $stmt = $conexao->prepare("INSERT INTO Eventos (dataevento, local) VALUES (?, ?)");
-    $stmt->execute([$dataevento, $local]);
+function adicionarEvento($dataevento, $local, $cliente_evento_id) {
+    try {
+        $sql = "INSERT INTO Eventos (dataevento, local, cliente_evento_id) VALUES (:dataevento, :local, :cliente_evento_id)";
+        $conexao = conectarBanco();
+        $stmt = $conexao->prepare($sql);
+        $stmt->bindValue(":dataevento", $dataevento);
+        $stmt->bindValue(":local", $local);
+        $stmt->bindValue(":cliente_evento_id", $cliente_evento_id);
+        return $stmt->execute();
+    } catch (Exception $e) {
+        return 0;
+    }
 }
 
 function consultarEventoId($id){
@@ -144,10 +152,18 @@ function listarFornecedores(){
     }
 }
 
-function adicionarFornecedor($tiposervico, $contato){
-    $conexao = conectarBanco();
-    $stmt = $conexao->prepare("INSERT INTO fornecedores (tiposervico, contato) VALUES (?, ?)");
-    $stmt->execute([$tiposervico, $contato]);
+function adicionarFornecedor($nome_fornecedor, $tiposervico, $contato) {
+    try {
+        $sql = "INSERT INTO fornecedores (nome_fornecedor, tiposervico, contato) VALUES (:nome_fornecedor, :tiposervico, :contato)";
+        $conexao = conectarBanco();
+        $stmt = $conexao->prepare($sql);
+        $stmt->bindValue(":nome_fornecedor", $nome_fornecedor);
+        $stmt->bindValue(":tiposervico", $tiposervico);
+        $stmt->bindValue(":contato", $contato);
+        return $stmt->execute();
+    } catch (Exception $e) {
+        return 0;
+    }
 }
 
 function consultarFornecedorId($id){

@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
       body {
-        background-color: #f8f9fa;
+        background-color: #ffa500;
       }
       .navbar {
         background-color: #007bff;
@@ -52,13 +52,13 @@
               <a class="nav-link" href="/CentralDeEventos/cliente/index_cliente.php">Clientes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/CentralDeEventos/contratofornecedores/index.php">Contrato</a>
+              <a class="nav-link" href="/CentralDeEventos/contratofornecedores/index_contratofornecedores.php">Contrato</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/CentralDeEventos/eventos/index.php">Eventos</a>
+              <a class="nav-link" href="/CentralDeEventos/eventos/index_eventos.php">Eventos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/CentralDeEventos/fornecedores/index.php">Fornecedores</a>
+              <a class="nav-link" href="/CentralDeEventos/fornecedores/index_fornecedores.php">Fornecedores</a>
             </li>
           </ul>
         </div>
