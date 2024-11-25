@@ -29,53 +29,46 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
-        
-        
         Clientes::create($request->all());
+        return redirect("/clientes");
+    }
 
-        return redirect()->route('clientes.index')->with('success', 'Cliente cadastrado com sucesso!');
+    /**
+     * Exibir cliente específico
+     */
+    public function show(string $id)
+    {
+        $cliente = Clientes::findOrFail($id);
+        return view('clientes.show', compact('cliente'));
     }
 
     /**
      * Exibir formulário de edição
      */
-    public function edit(Clientes $cliente)
+    public function edit($id)
     {
-        return view('clientes.edit', compact('cliente'));
+        $clientes = Clientes::findOrFail($id);
+        return view('clientes.edit', compact('clientes'));
     }
+    
 
     /**
      * Atualizar cliente no banco de dados
      */
-    public function update(Request $request, Clientes $cliente)
+    public function update(Request $request, $id)
     {
-        $validatedData = $request->validate([
-            'nome' => 'required|max:255',
-            'telefone' => 'required|max:15',
-            'cpf' => 'required|size:11|unique:clientes,cpf,'.$cliente->id,
-        ]);
-
-        $cliente->update($validatedData);
-
-        return redirect()->route('clientes.index')->with('success', 'Cliente atualizado com sucesso!');
+        $clientes = Clientes::findOrFail($id);
+        $clientes->update($request->all());
+        return redirect('/clientes')->with('success', 'Cliente atualizado com sucesso!');
     }
-
+    
     /**
      * Excluir cliente
      */
-    public function destroy(Clientes $cliente)
+    public function destroy(string $id)
     {
+        $cliente = Clientes::findOrFail($id);
         $cliente->delete();
-        return redirect()->route('clientes.index')->with('success', 'Cliente excluído com sucesso!');
+        return redirect("/clientes");
     }
-
-
-    public function show(string $id)
-    {
-        $cliente = Clientes::find($id);
-        return view('clientes.show', compact('cliente'));
-    }
-
 }
-
-
