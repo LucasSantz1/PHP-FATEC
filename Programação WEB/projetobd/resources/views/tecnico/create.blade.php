@@ -1,7 +1,7 @@
 <x-app-layout>
     <h5>Novo Técnico</h5>
 
-    <form action="/tecnicos" method="POST">
+    <form action="/tecnico" method="POST">
         @CSRF
         <div class="row">
             <div class="col">

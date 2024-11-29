@@ -23,11 +23,11 @@
         </div>
         <div class="row">
             <div class="col">
-                <button type="submit" class="btn btn-primary">
-                    Salvar
+                <a href="{{ route('clientes.index') }}" class="btn btn-secondary btn-lg">Voltar à Lista</a>
                 </button>
             </div>
         </div>
     </form>
 
 </x-app-layout>
+

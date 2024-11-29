@@ -47,6 +47,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/tecnico">Técnicos</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/tiposchamados">Tipos de Chamados</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="/atendimentos">Atendimentos</a>
+                </li>
             
             </ul>
             <ul class="navbar-nav ms-auto">

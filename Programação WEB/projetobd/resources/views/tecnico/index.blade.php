@@ -1,4 +1,3 @@
-
 <x-app-layout>
     <div class="container mt-4">
         <div class="d-flex justify-content-between mb-4">
@@ -14,7 +13,7 @@
             </div>
         @endif
 
-        @if ($tecnico->isEmpty())
+        @if ($tecnicos->isEmpty())
             <p class="text-center">Não há técnicos cadastrados.</p>
         @else
             <table class="table table-hover table-bordered text-center bg-light text-dark mt-4">
@@ -29,7 +28,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($tecnico as $tecnico)
+                    @foreach($tecnicos as $tecnico)
                         <tr>
                             <td>{{ $tecnico->nome }}</td>
                             <td>{{ $tecnico->especialidade }}</td>

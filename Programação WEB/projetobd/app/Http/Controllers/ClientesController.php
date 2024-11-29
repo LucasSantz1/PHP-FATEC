@@ -65,7 +65,7 @@ class ClientesController extends Controller
     /**
      * Excluir cliente
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         $cliente = Clientes::findOrFail($id);
         $cliente->delete();

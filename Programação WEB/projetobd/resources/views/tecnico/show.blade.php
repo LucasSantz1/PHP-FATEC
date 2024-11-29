@@ -45,13 +45,7 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-6 offset-md-3 text-center">
-                    <button type="submit" class="btn btn-danger btn-lg" onclick="return confirm('Tem certeza que deseja excluir este técnico?')">
-                        Excluir Técnico
-                    </button>
-                </div>
-            </div>
+            
         </form>
 
         <div class="text-center mt-4">
@@ -59,3 +53,5 @@
         </div>
     </div>
 </x-app-layout>
+
+<a href="{{ route('clientes.index') }}" class="btn btn-secondary btn-lg">Voltar à Lista</a>
